@@ -43,6 +43,7 @@
 @property (nonatomic, strong) NSString* systemVersion;
 @property (nonatomic, strong) NSString* modelCode;
 @property (nonatomic, strong) NSString* modelName;
+@property (nonatomic, strong) NSNumber* userId;
 
 @end
 

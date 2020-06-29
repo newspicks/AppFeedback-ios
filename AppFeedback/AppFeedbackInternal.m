@@ -74,12 +74,12 @@ static AppFeedback *sharedData = nil;
 #endif
 }
 
-+ (void)configureWithSlackToken:(NSString *)token slackChannel:(NSString *)channel {
-    [AppFeedback.shared configureWithSlackToken:token slackChannel:channel];
++ (void)configureWithSlackToken:(NSString *)token slackChannel:(NSString *)channel userId:(NSNumber *)userId {
+    [AppFeedback.shared configureWithSlackToken:token slackChannel:channel userId:userId];
 }
 
 + (void)configureWithSlackChannel:(nonnull NSString *)channel {
-    [AppFeedback.shared configureWithSlackToken:nil slackChannel:channel];
+    [AppFeedback.shared configureWithSlackToken:nil slackChannel:channel userId: nil];
 }
 
 // getter method for feedbackCategories
@@ -160,13 +160,16 @@ static AppFeedback *sharedData = nil;
     }
 }
 
-- (void)configureWithSlackToken:(NSString *)token slackChannel:(NSString *)channel {
+- (void)configureWithSlackToken:(NSString *)token slackChannel:(NSString *)channel userId:(NSNumber *)userId {
     if (token) {
         self.config.slackToken = token;
     }
 
     if (channel) {
         self.config.slackChannel = channel;
+    }
+    if (userId) {
+        self.userId = userId;
     }
 }
 

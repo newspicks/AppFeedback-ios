@@ -42,6 +42,7 @@
 
 @property (class, nonnull, readonly) AppFeedback *shared;
 @property (class, nonnull, readonly) NSBundle *frameworkBundle;
+@property (nonatomic, nonnull) NSNumber *userId;
 
 @property (nonatomic, nonnull, readonly) UIWindow *floatingButtinWindow;
 - (void)updateFloatingButtonState;
