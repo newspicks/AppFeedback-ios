@@ -32,8 +32,9 @@
 
  @param token slack token
  @param channel slack channel id
+ @param userId user id
  */
-+ (void)configureWithSlackToken:(nonnull NSString *)token slackChannel:(nonnull NSString *)channel;
++ (void)configureWithSlackToken:(nonnull NSString *)token slackChannel:(nonnull NSString *)channel userId:(nonnull NSNumber *)userId;
 
 /**
  Initialize AppFeedback SDK
