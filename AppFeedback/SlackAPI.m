@@ -71,7 +71,7 @@
                          @"%@\n"
                          "by @%@\n\n"
                          "```\n"
-                         "[UserId]\n%@\n¥N"
+                         "[UserId]\n%@\n\n"
                          "[Category]\n%@\n\n"
                          "[Message]\n%@\n\n"
                          "[App Title]\n%@\n\n"
@@ -81,7 +81,7 @@
                          "[Device]\n"
                          "iOS: %@\n"
                          "Model: %@ (%@)\n"
-                         , data, data.title, data.username, data.category, data.comment, data.appTitle, data.appVersion, data.appBuildVersion, data.systemVersion, data.modelName, data.modelCode];
+                         , data.title, data.username, data.userId, data.category, data.comment, data.appTitle, data.appVersion, data.appBuildVersion, data.systemVersion, data.modelName, data.modelCode];
 
     if (self.branchName) {
         message = [message stringByAppendingFormat:@"\n[Branch]\n%@\n", self.branchName];
