@@ -47,6 +47,7 @@ static NSString * _Nonnull const kCaptureEndNotification   = @"CaptureEndNotific
 @property (nonatomic, strong) FloatingButtonController *floatingButtonController;
 @property (nonatomic, strong) ScreenVideoCaptureSession *screenVideoCaptureSession;
 @property (nonatomic) BOOL isHidden;
+@property (nonatomic, strong) NSNumber *userId;
 @property (nonatomic, strong) NSArray<NSString *> *feedbackCategories;
 @property (nonatomic) BOOL feedbackDialogPresented;
 @property (nonatomic, strong) ReportViewController *reportViewController;
@@ -74,12 +75,12 @@ static AppFeedback *sharedData = nil;
 #endif
 }
 
-+ (void)configureWithSlackToken:(NSString *)token slackChannel:(NSString *)channel userId:(NSNumber *)userId {
-    [AppFeedback.shared configureWithSlackToken:token slackChannel:channel userId:userId];
++ (void)configureWithSlackToken:(NSString *)token slackChannel:(NSString *)channel {
+    [AppFeedback.shared configureWithSlackToken:token slackChannel:channel];
 }
 
 + (void)configureWithSlackChannel:(nonnull NSString *)channel {
-    [AppFeedback.shared configureWithSlackToken:nil slackChannel:channel userId: nil];
+    [AppFeedback.shared configureWithSlackToken:nil slackChannel:channel];
 }
 
 // getter method for feedbackCategories
@@ -106,6 +107,14 @@ static AppFeedback *sharedData = nil;
 
 + (void)setIsHidden:(BOOL)isHidden {
     AppFeedback.shared.isHidden = isHidden;
+}
+
++ (NSNumber *)userId {
+    return AppFeedback.shared.userId;
+}
+
++ (void)setUserId:(NSNumber *)userId {
+    AppFeedback.shared.userId = userId;
 }
 
 + (void)showFeedbackDialog {
@@ -160,16 +169,13 @@ static AppFeedback *sharedData = nil;
     }
 }
 
-- (void)configureWithSlackToken:(NSString *)token slackChannel:(NSString *)channel userId:(NSNumber *)userId {
+- (void)configureWithSlackToken:(NSString *)token slackChannel:(NSString *)channel{
     if (token) {
         self.config.slackToken = token;
     }
 
     if (channel) {
         self.config.slackChannel = channel;
-    }
-    if (userId) {
-        self.userId = userId;
     }
 }
 

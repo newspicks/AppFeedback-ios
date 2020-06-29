@@ -284,7 +284,7 @@ UITextViewDelegate
     data.systemVersion = DeviceUtil.OSVersion;
     data.modelCode = DeviceUtil.ModelCode;
     data.modelName = DeviceUtil.ModelName;
-    data.userId = AppFeedback.shared.userId;
+    data.userId = AppFeedback.userId;
     
     [self.sendingLabel setHidden:NO];
 

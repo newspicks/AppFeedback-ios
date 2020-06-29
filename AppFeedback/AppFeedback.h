@@ -34,7 +34,7 @@
  @param channel slack channel id
  @param userId user id
  */
-+ (void)configureWithSlackToken:(nonnull NSString *)token slackChannel:(nonnull NSString *)channel userId:(nonnull NSNumber *)userId;
++ (void)configureWithSlackToken:(nonnull NSString *)token slackChannel:(nonnull NSString *)channel;
 
 /**
  Initialize AppFeedback SDK
@@ -57,6 +57,8 @@
  Whether to hide feedback button (default: true)
  */
 @property (class) BOOL isHidden;
+
+@property (class, nonnull) NSNumber *userId;
 
 /**
  Display feedback dialog when two fingers long tap gesture is detected
